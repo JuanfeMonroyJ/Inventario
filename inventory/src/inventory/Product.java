@@ -1,28 +1,49 @@
 package inventory;
 
 public class Product {
+	
+			
 	// Instance field declarations
 	private int numeroElemento;
 	private String nombreDelProducto;
 	private int numeroDeUnidadesEnExistencia;
 	private double precioDeCadaUnidad;
+	private boolean activo;
 
 	// Constructor sin parametros
 	public Product() {
-		this.numeroElemento = 0;
-		this.nombreDelProducto = "";
-		this.numeroDeUnidadesEnExistencia = 0;
-		this.precioDeCadaUnidad = 0.0;
+		this.numeroElemento = 1;
+		this.nombreDelProducto = "Greatest Hits";
+		this.numeroDeUnidadesEnExistencia = 25;
+		this.precioDeCadaUnidad = 9.99;
+		this.activo = true;
 	}
 
 	// Constructor sobrecargado con parametros
-	public Product(int number, String name, int qty, double price) {
+	public Product(int number, String name, int qty, double price, boolean ProductStatus) {
 		this.numeroElemento = number;
 		this.nombreDelProducto = name;
 		this.numeroDeUnidadesEnExistencia = qty;
 		this.precioDeCadaUnidad = price;
+		this.activo = ProductStatus;
 	}
+	
+	// Método para calcular el valor del inventario
+	public double calcularValorInventario () {
+		return (precioDeCadaUnidad * numeroDeUnidadesEnExistencia);
+	}
+	
 	// Getter y Setter
+	
+	// get and set activo
+	//GET
+	public boolean getActivo() {
+		return activo;
+	}
+	// SET
+	public void setActivo (boolean activo) {
+		this.activo = activo;
+	}
 
 	// get and set numeroElemento
 	// GET
@@ -73,6 +94,9 @@ public class Product {
 		return "Item del Producto: " + numeroElemento + "\n" +
 				"Name: " + nombreDelProducto + "\n" +
 				"Unidades Existentes: " + numeroDeUnidadesEnExistencia + "\n" +
-				"Precio Unidad: " + String.format("%.2f", precioDeCadaUnidad); 
+				"Precio Unidad: " + String.format("%.2f", precioDeCadaUnidad) + "\n" +
+				"Valor de Inventario: " + String.format("%.2f", calcularValorInventario()) + "\n" +
+				"Estado del producto: " + (activo ? "Activo" : "Descatalogado");  
+		
 	}
 }
