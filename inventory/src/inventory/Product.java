@@ -1,8 +1,7 @@
 package inventory;
 
 public class Product {
-	
-			
+
 	// Instance field declarations
 	private int numeroElemento;
 	private String nombreDelProducto;
@@ -27,21 +26,22 @@ public class Product {
 		this.precioDeCadaUnidad = price;
 		this.activo = ProductStatus;
 	}
-	
+
 	// Método para calcular el valor del inventario
-	public double calcularValorInventario () {
+	public double calcularValorInventario() {
 		return (precioDeCadaUnidad * numeroDeUnidadesEnExistencia);
 	}
-	
+
 	// Getter y Setter
-	
+
 	// get and set activo
-	//GET
+	// GET
 	public boolean getActivo() {
 		return activo;
 	}
+
 	// SET
-	public void setActivo (boolean activo) {
+	public void setActivo(boolean activo) {
 		this.activo = activo;
 	}
 
@@ -88,15 +88,14 @@ public class Product {
 	public void setPrecioDeCadaUnidad(double precioDeCadaUnidad) {
 		this.precioDeCadaUnidad = precioDeCadaUnidad;
 	}
-	
+
 	// Metodo toString
 	public String toString() {
-		return "Item del Producto: " + numeroElemento + "\n" +
-				"Name: " + nombreDelProducto + "\n" +
-				"Unidades Existentes: " + numeroDeUnidadesEnExistencia + "\n" +
-				"Precio Unidad: " + String.format("%.2f", precioDeCadaUnidad) + "\n" +
-				"Valor de Inventario: " + String.format("%.2f", calcularValorInventario()) + "\n" +
-				"Estado del producto: " + (activo ? "Activo" : "Descatalogado");  
-		
+		return "Item del Producto: " + numeroElemento + "\n" + "Name: " + nombreDelProducto + "\n"
+				+ "Unidades Existentes: " + numeroDeUnidadesEnExistencia + "\n" + "Precio Unidad: "
+				+ String.format("%.2f", precioDeCadaUnidad) + "\n" + "Valor de Inventario: "
+				+ String.format("%.2f", calcularValorInventario()) + "\n" + "Estado del producto: "
+				+ (activo ? "Activo" : "Descatalogado");
+
 	}
 }
